@@ -1,85 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TP VIP Daily Tasks</title>
-<style>
-:root{--blue:#36a9ff;--cyan:#39d7ff;--navy:#06152e;--panel:#102b4e;--white:#eaf3ff}
-*{box-sizing:border-box}
-body{margin:0;background:#020b1b;color:var(--white);font-family:Arial,Helvetica,sans-serif}
-.page{width:min(100%,620px);margin:12px auto;padding:28px 24px 34px;border:3px solid #278cff;border-radius:30px;background:radial-gradient(ellipse at 50% 20%,#102b53 0%,#071a35 48%,#041127 100%);box-shadow:0 0 24px #168bff33}
-.top-pill{margin:8px auto 34px;width: min(88%,390px);padding:15px 12px;text-align:center;border-radius:40px;background:linear-gradient(100deg,#0875d8,#6edcff,#0875d8);color:#061b39;font-weight:800;letter-spacing:3px;box-shadow:0 0 25px #168bff88}
-.logo{width:150px;height:150px;border-radius:50%;margin:0 auto 34px;display:grid;place-items:center;font-size:56px;font-weight:900;color:#07152b;background:radial-gradient(circle at 35% 25%,#ffe58a,#d59a20 68%,#80510c);border:6px solid #ffe59a;box-shadow:0 0 28px #ffc94e88}
-h1{text-align:center;color:#55c9ff;font-size:clamp(30px,7vw,46px);margin:0 0 22px;text-shadow:0 0 16px #179bff77}
-.intro{text-align:center;font-size:18px;line-height:1.8;margin:0 0 28px}
-.tap{text-align:center;color:#61d2ff;font-size:21px;font-weight:800;letter-spacing:1px;margin:28px 0 20px;text-shadow:0 0 12px #1daaff}
-.cta{display:block;text-align:center;text-decoration:none;color:white;font-size:clamp(12px,3.3vw,19px);font-weight:800;line-height:1.25;padding:20px 4px;white-space:nowrap;border:3px solid #76eaff;border-radius:20px;background:linear-gradient(110deg,#08c9ee,#0874ff 65%,#143cba);box-shadow:0 8px 0 #073b83,0 0 22px #12baff88}
-.panel{margin-top:42px;padding:28px 18px;border:2px solid #287bc5;border-radius:24px;background:linear-gradient(145deg,#112f54,#081b35)}
-.panel h2{text-align:center;color:#6bd5ff;font-weight:500;font-size:clamp(22px,5vw,30px);margin:8px 0 32px}
-.sub{text-align:center;font-size:18px;margin:0 0 16px}
-.rewards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.reward{padding:22px 8px;text-align:center;border:2px solid #3789d5;border-radius:18px;background:linear-gradient(145deg,#1b416c,#0b203d);box-shadow:inset 0 0 15px #168bff22}
-.reward .tasks{font-size:19px}
-.reward strong{display:block;color:#63d4ff;font-size:clamp(25px,6vw,36px);margin:18px 0 12px}
-.reward small{font-size:15px;color:#d0def0}
-.disclaimer{font-size:13px;line-height:1.6;color:#bdcce0;text-align:center;margin:20px 2px 0}
-.welcome{margin-top:38px;padding:24px 16px;border:2px dashed #347fc4;border-radius:20px;text-align:center;background:#0b203b}
-.welcome h2{font-size:26px;color:#70d8ff;font-weight:500;margin:4px 0 18px}
-.welcome p{font-size:18px;line-height:1.9;margin:0}
-.footer{text-align:center;margin:150px 0 8px;font-size:17px;line-height:2;color:#c8d8ee}
-.footer small{display:block;font-size:14px;margin-top:24px}
-@media(max-width:390px){.page{padding:20px 12px}.cta{font-size:12px;padding:17px 2px}.rewards{gap:10px}.reward{padding:18px 4px}.panel{padding:22px 12px}.footer{margin-top:100px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090909">
+  <title>Task Plans</title>
+  <style>
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#090909;color:#f7f2e8}
+    .wrap{min-height:100vh;padding:28px 18px 50px;background:radial-gradient(circle at 50% 0%,#3a2a0d 0,#15110a 30%,#090909 68%)}
+    header{max-width:980px;margin:0 auto 48px;text-align:center}
+    .brand{display:inline-block;color:#e8bd61;border:1px solid #8d6b2b;padding:9px 18px;border-radius:30px;letter-spacing:3px;font-size:12px;font-weight:700}
+    h1{font-size:clamp(34px,7vw,58px);margin:24px 0 12px;line-height:1.08}
+    h1 span{color:#e8bd61}
+    .sub{color:#c5bdaE;line-height:1.6;font-size:16px;max-width:580px;margin:0 auto}
+    .plans{max-width:980px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .plan{background:linear-gradient(155deg,#1b1b1b,#101010);border:1px solid #4b3a1d;border-radius:18px;padding:28px 22px;text-align:center;box-shadow:0 15px 40px #0008}
+    .plan.featured{border-color:#e8bd61;transform:translateY(-8px)}
+    .tag{color:#e8bd61;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:bold}
+    .count{font-size:25px;font-weight:700;margin:18px 0 8px}
+    .price{font-size:42px;font-weight:800;color:#f0c96e;margin:8px 0}
+    .each{font-size:13px;color:#aaa;margin-bottom:22px}
+    .btn{display:inline-block;text-decoration:none;background:#e8bd61;color:#111;font-weight:800;padding:14px 22px;border-radius:9px;width:100%;transition:.2s}
+    .btn:hover{background:#f5d88f;transform:translateY(-2px)}
+    .note{max-width:760px;margin:38px auto 0;color:#9f9a8e;text-align:center;font-size:12px;line-height:1.6}
+    footer{text-align:center;color:#777;font-size:12px;margin-top:38px}
+    @media(max-width:720px){.plans{grid-template-columns:1fr;max-width:420px}.plan.featured{transform:none}header{margin-bottom:32px}}
+  </style>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;
-s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
-(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '4566167170333548');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=4566167170333548&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '4566167170333548');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1696769731958657&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
 
 </head>
 <body>
-<main class="page">
-    <div class="logo">Task</div>
-  <h1>DAILY TASKS</h1>
-  <p class="intro">WELCOME TO OUR PREMIUM PLATFORM<br>Complete Tasks &amp; Explore Rewards!</p>
-  <div class="tap">👇 TAP HERE 👇</div>
-  <a class="cta" href="https://t.me/+0ap3Phm-jIcyN2M1" target="_blank" rel="noopener" onclick="if(typeof fbq==='function'){fbq('trackCustom','TelegramButtonClick');}">🚀 JOIN TELEGRAM CHANNEL</a>
+  <main class="wrap">
+    <header>
+      <div class="brand">TASK PLANS</div>
+      <h1>Choose Your <span>Task Plan</span></h1>
+      <p class="sub">Select the task package that suits you. Tap the button below to join our Telegram channel and get the details.</p>
+    </header>
 
-  <section class="panel">
-    <h2>💰 EARN MONEY WITH TASKS</h2>
-    <p class="sub">YOUR TASK REWARDS</p>
-    <div class="rewards">
-      <div class="reward"><span class="tasks">1 TASK</span><strong>₹500</strong><small>REWARD AMOUNT</small></div>
-      <div class="reward"><span class="tasks">5 TASKS</span><strong>₹3,500</strong><small>REWARD AMOUNT</small></div>
-      <div class="reward"><span class="tasks">10 TASKS</span><strong>₹8,000</strong><small>REWARD AMOUNT</small></div>
-      <div class="reward"><span class="tasks">20 TASKS</span><strong>₹20,000</strong><small>REWARD AMOUNT</small></div>
-    </div>
-    <p class="disclaimer">Rewards, if offered, are subject to the actual task rules, eligibility, verification and payment terms. No income is guaranteed. Review all terms before participating.</p>
-  </section>
+    <section class="plans" aria-label="Task packages">
+      <article class="plan">
+        <div class="tag">Starter</div>
+        <div class="count">1 Task</div>
+        <div class="price">₹500</div>
+        <div class="each">1 task package</div>
+        <a class="btn" href="https://telegram.me/+cdsCi2wimg5mOWY1" target="_blank" rel="noopener" onclick="if(typeof fbq===\'function\'){fbq(\'trackCustom\',\'TelegramClick\');}">Join Telegram Channel</a>
+      </article>
 
-  <section class="welcome">
-    <h2>💎 WELCOME TO TP VIP</h2>
-    <p>Join Our Official Telegram Channel.<br>Stay Connected And Receive Daily Updates.<br>Explore Our Daily Tasks Platform!</p>
-  </section>
-  <div class="tap">👇 TAP HERE 👇</div>
-  <a class="cta" href="https://t.me/+0ap3Phm-jIcyN2M1" target="_blank" rel="noopener" onclick="if(typeof fbq==='function'){fbq('trackCustom','TelegramButtonClick');}">🚀 JOIN TELEGRAM CHANNEL</a>
-  <footer class="footer">
-    THANK YOU FOR VISITING TP DAILY TASKS 🏆
-    <small>© 2026 TP DAILY TASKS VIP<br>ALL RIGHTS RESERVED</small>
-  </footer>
-</main>
+      <article class="plan featured">
+        <div class="tag">Popular</div>
+        <div class="count">5 Tasks</div>
+        <div class="price">₹2,500</div>
+        <div class="each">5 task package</div>
+        <a class="btn" href="https://telegram.me/+cdsCi2wimg5mOWY1" target="_blank" rel="noopener" onclick="if(typeof fbq===\'function\'){fbq(\'trackCustom\',\'TelegramClick\');}">Join Telegram Channel</a>
+      </article>
+
+      <article class="plan">
+        <div class="tag">Value Pack</div>
+        <div class="count">10 Tasks</div>
+        <div class="price">₹5,000</div>
+        <div class="each">10 task package</div>
+        <a class="btn" href="https://telegram.me/+cdsCi2wimg5mOWY1" target="_blank" rel="noopener" onclick="if(typeof fbq===\'function\'){fbq(\'trackCustom\',\'TelegramClick\');}">Join Telegram Channel</a>
+      </article>
+    </section>
+
+    <p class="note">Please review the task details, eligibility, terms and any applicable charges before making a payment. No income or results are guaranteed.</p>
+    <footer>© 2026 Task Plans. All rights reserved.</footer>
+  </main>
 </body>
 </html>
